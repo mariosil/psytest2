@@ -1,0 +1,22 @@
+{
+  "name": "psytest",
+  "description": "Pscometric tests",
+  "main": "main.js",
+  "authors": [
+    "Vexed-M"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-material": "^1.1.4"    
+  }
+}

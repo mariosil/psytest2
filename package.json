@@ -1,0 +1,17 @@
+{
+  "name": "psytest",
+  "version": "2.0.0",
+  "description": "Pscometric tests",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Vexed-M",
+  "license": "ISC",
+  "dependencies": {
+    "electron-prebuilt": "^1.4.13"
+  },
+  "devDependencies": {
+    "devtron": "^1.4.0"
+  }
+}
