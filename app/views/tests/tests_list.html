@@ -7,4 +7,9 @@
   <md-card-content>
     Aqui se mostrarán todas las pruebas disponibles para aplicar.
   </md-card-content>
+  <md-card-actions layout="row" layout-align="start">
+    <md-button class="md-fab md-mini" aria-label="before" ng-click="go('/')">
+      <md-icon md-svg-src="data:image/svg+xml, {{ icons.before }}"></md-icon>
+    </md-button>
+  </md-card-actions>
 </md-card>

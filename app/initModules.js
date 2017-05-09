@@ -15,7 +15,10 @@ app.config(function($mdThemingProvider, $routeProvider) {
   .warnPalette('orange');
 
   // Configuring app routes
-  $routeProvider.when("/tests", {
+  $routeProvider.when("/", {
+    templateUrl: "home/home.html"
+  })
+  .when("/tests", {
     templateUrl: "tests/tests_list.html"
   });
 });
