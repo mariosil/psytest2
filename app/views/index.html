@@ -22,10 +22,8 @@
 
   <body ng-controller="IndexController" layout="column" layout-align="center">
 
-    <md-content ng-init="go('/')" class="md-padding" layout layout-align="center">
-      <ng-view>
-        <!-- All app views will show here -->
-      </ng-view>
+    <md-content ng-init="go('/')" class="md-padding" layout layout-align="center" ng-view>
+      <!-- All app views will show here -->
     </md-content>
 
   </body>

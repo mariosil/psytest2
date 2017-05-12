@@ -1,0 +1,28 @@
+<md-fab-toolbar md-direction="left">
+
+  <md-fab-trigger>
+    <md-button class="md-fab" aria-label="Settings">
+      <md-icon md-svg-src="data:image/svg+xml, {{ icons.settings }}"></md-icon>
+    </md-button>
+  </md-fab-trigger>
+
+  <md-toolbar>
+    <md-fab-actions class="md-toolbar-tools">
+
+      <md-button class="md-icon-button" aria-label="Close">
+        <md-icon md-svg-src="data:image/svg+xml, {{ icons.close }}"></md-icon>
+      </md-button>
+
+      <md-input-container layout flex>
+        <label>{{ settings.label }}</label>
+        <input ng-model="settings.reports_dir" disabled>
+      </md-input-container>
+
+      <md-button class="md-fab md-mini" aria-label="Folder">
+        <md-icon md-svg-src="data:image/svg+xml, {{ icons.folder }}"></md-icon>
+      </md-button>
+
+    </md-fab-actions>
+  </md-toolbar>
+
+</md-fab-toolbar>

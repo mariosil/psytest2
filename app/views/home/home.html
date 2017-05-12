@@ -1,16 +1,13 @@
-<md-card flex-xs="60" flex-sm="40" flex-md="25" flex-lg="25" flex-xl="35" layout="column" layout-align="center center">
-  <img src="icon_4-1-t.svg" class="md-card-image">
-  <md-card-title>
-    <md-card-title-text>
-      Pruebas psicométricas de opción múltiple
-    </md-card-title-text>
-  </md-card-title>
-  <md-card-actions layout="row" layout-align="start">
-    <md-button class="md-fab md-warn md-mini" aria-label="list">
-      <md-icon md-svg-src="data:image/svg+xml, {{ icons.settings }}"></md-icon>
-    </md-button>
-    <md-button class="md-fab md-mini" aria-label="list" ng-click="go('/tests')">
-      <md-icon md-svg-src="data:image/svg+xml, {{ icons.list }}"></md-icon>
-    </md-button>
-  </md-card-actions>
-</md-card>
+<md-content flex="initial" layout="column" layout-align="center center">
+  <img src="icon_4-1-t.svg">
+
+  <md-subheader class="md-primary">Pruebas psicométricas de opción múltiple</md-subheader>
+
+  <md-content>
+
+    <div ng-include="'home/app_settings.html'"></div>
+
+    <div ng-include="'home/app_list.html'"></div>
+
+  </md-content>
+</md-content>
