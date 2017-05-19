@@ -4,33 +4,37 @@ const dialog = require('electron').remote.dialog;
 const os = require('os');
 
 // Controller for 'index.html'
-app.controller('IndexController', ['$scope', '$location', '$mdToast', 'pbqTest', 'bdi_iiTest', 'icons',
-function($scope, $location, $mdToast, pbqTest, bdi_ii, icons) {
+app.controller('IndexController', ['$scope', '$location', '$mdToast', 'pbqTest', 'bdi_iiTest', 'icons', 'appSettings',
+function($scope, $location, $mdToast, pbqTest, bdi_ii, icons, appSettings) {
+  $scope.ttIndex = true;
+
   $scope.icons = icons;
   $scope.tests = [pbqTest, bdi_ii];
-  // TODO: Create another controller which read an external file looking for reports dir path and set '$scope.settings' to a method calling.
-  $scope.settings = {
-    label: '¿Dónde se guardarán los reportes?',
-    reports_dir: ''
-  };
+  $scope.settings = appSettings.getReportsDirpath();
 
-  $scope.go = function(path) {
-    $location.path(path);
+  $scope.go = function(route_path) {
+    $location.path(route_path);
   };
 
   $scope.openFileChooser = function() {
+    console.log('current');
+    console.log($scope.settings.reports_dir);
     dialog.showOpenDialog(
       {
         title: "Seleccione la carpeta donde se guardarán los reportes",
-        defaultPath: os.homedir(),
+        defaultPath: ($scope.settings.reports_dir != "") ? $scope.settings.reports_dir : os.homedir(),
         properties: ['openDirectory']
       },
       function(files) {
-        if(files){
+        if (files) {
+          // TODO: If 'files' exist, it must be saved by 'setReportsDirpath(files)' from appSettings
           $scope.settings.label = 'Carpeta de reportes';
-          $scope.settings.reports_dir = files;
+          $scope.settings.reports_dir = files.pop();
+          // TODO: This must return a confirm message from 'appSettings' before show toast.
           $mdToast.showSimple($scope.settings.label + ': ' + $scope.settings.reports_dir);
+          console.log('new');
+          console.log($scope.settings.reports_dir);
         }
-      });
+    });
   };
 }]);

@@ -6,7 +6,7 @@
 var app = angular.module('PsytestApp', ['ngMaterial', 'ngRoute']);
 
 // Configuring application stuff
-app.config(function($mdThemingProvider, $routeProvider, $mdToastProvider) {
+app.config(function($mdThemingProvider, $routeProvider) {
 
   // Configuring Color Theme Intentions
   $mdThemingProvider.theme('default')
