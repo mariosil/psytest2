@@ -1,4 +1,7 @@
-<md-sidenav md-component-id="right" class="md-sidenav-right" layout="column">
+<!-- This backdrop will avoid to use main controlls before close List Sidenav -->
+<md-backdrop class="md-sidenav-backdrop md-opaque" ng-show="shouldBlockByBackdrop"></md-backdrop>
+
+<md-sidenav md-component-id="right" class="md-sidenav-right" layout="column" md-disable-backdrop>
   <md-toolbar class="md-toolbar-tools">
     <md-button class="md-icon-button" aria-label="Close" ng-click="toggleListMenu()">
       <md-icon md-svg-src="data:image/svg+xml, {{ icons.close }}"></md-icon>
