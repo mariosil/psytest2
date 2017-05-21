@@ -36,8 +36,8 @@ function($scope, $location, $mdToast, $mdSidenav, pbqTest, bdi_ii, icons, appSet
         console.log(files);
         $scope.isOpenFileChooser = false;
         if (files) {
-          $scope.settings.label = 'Carpeta de reportes';
-          $scope.settings.reports_dir = files.pop();
+          appSettings.setReportsDirpath(files.pop());
+          $scope.settings = appSettings.getReportsDirpath();
           $mdToast.showSimple($scope.settings.label + ': ' + $scope.settings.reports_dir);
         } else {
           // This forces 'Folder' button to refresh disable="true/false" property.

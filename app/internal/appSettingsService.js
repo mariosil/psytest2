@@ -6,10 +6,11 @@ const url = require('url')
 
 const REPORTS_DIR = url.format({ pathname: path.join('app', 'internal', 'reports_dir.config') });
 
-app.service('appSettings', function() {
+app.service('appSettings', function($mdToast) {
   this.setReportsDirpath = function(dirpath) {
-    // TODO: Return dirpath if writing file was successfull.
+    fs.writeFileSync(REPORTS_DIR, dirpath);
   };
+
   this.getReportsDirpath = function() {
     content = fs.readFileSync(REPORTS_DIR, 'utf8');
     if (content) {
@@ -17,5 +18,5 @@ app.service('appSettings', function() {
     } else {
       return {label: '¿Dónde se guardarán los reportes?', reports_dir: ""};
     }
-  };
+  };  
 });
