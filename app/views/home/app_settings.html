@@ -1,28 +1,21 @@
-<md-fab-toolbar md-direction="left">
-
-  <md-fab-trigger>
-    <md-button class="md-fab" aria-label="Settings">
-      <md-icon md-svg-src="data:image/svg+xml, {{ icons.settings }}"></md-icon>
+<md-sidenav md-component-id="left" class="md-sidenav-left" layout="column">
+  <md-toolbar class="md-toolbar-tools">
+    <h2 flex md-truncate>Configuración</h2>
+    <md-button class="md-icon-button" aria-label="Close" ng-click="toggleSettingsMenu()">
+      <md-icon md-svg-src="data:image/svg+xml, {{ icons.close }}"></md-icon>
     </md-button>
-  </md-fab-trigger>
-
-  <md-toolbar>
-    <md-fab-actions class="md-toolbar-tools">
-
-      <md-button class="md-icon-button" aria-label="Close">
-        <md-icon md-svg-src="data:image/svg+xml, {{ icons.close }}"></md-icon>
-      </md-button>
-
-      <md-input-container layout>
-        <label>{{ settings.label }}</label>
-        <input ng-model="settings.reports_dir" disabled>
-      </md-input-container>
-
-      <md-button class="md-fab md-mini" aria-label="Folder" ng-click="openFileChooser()">
-        <md-icon md-svg-src="data:image/svg+xml, {{ icons.folder }}"></md-icon>
-      </md-button>
-
-    </md-fab-actions>
   </md-toolbar>
 
-</md-fab-toolbar>
+  <md-input-container>
+    <label>{{ settings.label }}</label>
+    <input ng-model="settings.reports_dir" disabled>
+    <md-tooltip md-direction="left">{{ settings.reports_dir }}</md-tooltip>
+  </md-input-container>
+
+  <md-content layout layout-padding layout-align="end center">
+    <md-button class="md-fab md-mini" aria-label="Folder" ng-click="openFileChooser()">
+      <md-icon md-svg-src="data:image/svg+xml, {{ icons.folder }}"></md-icon>
+      <md-tooltip md-direction="left">Seleccionar carpeta</md-tooltip>
+    </md-button>
+  </md-content>
+</md-sidenav>

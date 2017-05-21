@@ -4,8 +4,8 @@ const dialog = require('electron').remote.dialog;
 const os = require('os');
 
 // Controller for 'index.html'
-app.controller('IndexController', ['$scope', '$location', '$mdToast', 'pbqTest', 'bdi_iiTest', 'icons', 'appSettings',
-function($scope, $location, $mdToast, pbqTest, bdi_ii, icons, appSettings) {
+app.controller('IndexController', ['$scope', '$location', '$mdToast', '$mdSidenav', 'pbqTest', 'bdi_iiTest', 'icons', 'appSettings',
+function($scope, $location, $mdToast, $mdSidenav, pbqTest, bdi_ii, icons, appSettings) {
   $scope.ttIndex = true;
 
   $scope.icons = icons;
@@ -14,6 +14,14 @@ function($scope, $location, $mdToast, pbqTest, bdi_ii, icons, appSettings) {
 
   $scope.go = function(route_path) {
     $location.path(route_path);
+  };
+
+  $scope.toggleSettingsMenu = function() {
+    $mdSidenav('left').toggle();
+  };
+
+  $scope.toggleListMenu = function() {
+    $mdSidenav('right').toggle();
   };
 
   $scope.openFileChooser = function() {
