@@ -6,6 +6,7 @@
 
     <!-- Angular components -->
     <link rel="stylesheet" href="../../bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="../assets/material_icons.css">
     <script type="text/javascript" src="../../bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="../../bower_components/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="../../bower_components/angular-aria/angular-aria.min.js"></script>
@@ -14,15 +15,14 @@
 
     <!-- App components -->
     <script type="text/javascript" src="../initModules.js"></script>
+    <script type="text/javascript" src="../assets/toastService.js"></script>
     <script type="text/javascript" src="../internal/appSettingsService.js"></script>
     <script type="text/javascript" src="../psyco_tests/pbqTestFactory.js"></script>
     <script type="text/javascript" src="../psyco_tests/bdi_iiTestFactory.js"></script>
-    <script type="text/javascript" src="../assets/iconsFactory.js"></script>
     <script type="text/javascript" src="../controllers/indexController.js"></script>
   </head>
 
   <body ng-controller="IndexController" layout="column" layout-align="center">
-
     <md-content ng-init="go('/')" class="md-padding" layout layout-align="center" ng-view>
       <!-- All app views will show here -->
     </md-content>

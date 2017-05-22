@@ -4,9 +4,8 @@ const dialog = require('electron').remote.dialog;
 const os = require('os');
 
 // Controller for 'index.html'
-app.controller('IndexController', ['$scope', '$location', '$mdToast', '$mdSidenav', 'pbqTest', 'bdi_iiTest', 'icons', 'appSettings',
-function($scope, $location, $mdToast, $mdSidenav, pbqTest, bdi_ii, icons, appSettings) {
-  $scope.icons = icons;
+app.controller('IndexController', ['$scope', '$location', '$mdSidenav', 'pbqTest', 'bdi_iiTest', 'appSettings', 'toast',
+function($scope, $location, $mdSidenav, pbqTest, bdi_ii, appSettings, toast) {
   $scope.tests = [pbqTest, bdi_ii];
   $scope.settings = appSettings.getReportsDirpath();
 
@@ -33,15 +32,14 @@ function($scope, $location, $mdToast, $mdSidenav, pbqTest, bdi_ii, icons, appSet
         properties: ['openDirectory']
       },
       function(files) {
-        console.log(files);
         $scope.isOpenFileChooser = false;
         if (files) {
           appSettings.setReportsDirpath(files.pop());
           $scope.settings = appSettings.getReportsDirpath();
-          $mdToast.showSimple($scope.settings.label + ': ' + $scope.settings.reports_dir);
+          toast.showSucces($scope.settings.label + ': ' + $scope.settings.reports_dir);
         } else {
           // This forces 'Folder' button to refresh disable="true/false" property.
-          $mdToast.showSimple("Sin cambios");
+          toast.showInfo("Sin cambios");
         }
     });
   };

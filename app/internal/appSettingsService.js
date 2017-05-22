@@ -6,7 +6,7 @@ const url = require('url')
 
 const REPORTS_DIR = url.format({ pathname: path.join('app', 'internal', 'reports_dir.config') });
 
-app.service('appSettings', function($mdToast) {
+app.service('appSettings', function() {
   this.setReportsDirpath = function(dirpath) {
     fs.writeFileSync(REPORTS_DIR, dirpath);
   };
@@ -18,5 +18,5 @@ app.service('appSettings', function($mdToast) {
     } else {
       return {label: '¿Dónde se guardarán los reportes?', reports_dir: ""};
     }
-  };  
+  };
 });
