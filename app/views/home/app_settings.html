@@ -5,7 +5,7 @@
   <md-toolbar class="md-toolbar-tools">
     <h2 flex md-truncate>Configuración</h2>
     <md-button class="md-icon-button" aria-label="Close" ng-click="toggleSettingsMenu()" ng-disabled="isOpenFileChooser">
-      <md-icon md-svg-src="data:image/svg+xml, {{ icons.close }}"></md-icon>
+      <md-icon md-font-set="material-icons">close</md-icon>
     </md-button>
   </md-toolbar>
 
@@ -17,7 +17,7 @@
 
   <md-content layout layout-padding layout-align="end center">
     <md-button class="md-fab md-mini" aria-label="Folder" ng-click="openFileChooser()" ng-disabled="isOpenFileChooser">
-      <md-icon md-svg-src="data:image/svg+xml, {{ icons.folder }}"></md-icon>
+      <md-icon md-font-set="material-icons">folder</md-icon>
       <md-tooltip md-direction="left">Seleccionar carpeta</md-tooltip>
     </md-button>
   </md-content>
