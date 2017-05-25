@@ -3,10 +3,15 @@ var app = angular.module('PsytestApp');
 const dialog = require('electron').remote.dialog;
 const os = require('os');
 
-app.controller('SettingsController', ['$scope', 'appSettings', 'toast',
-function($scope, appSettings, toast) {
+app.controller('SettingsController', ['$scope', '$mdSidenav', 'appSettings', 'toast',
+function($scope, $mdSidenav, appSettings, toast) {
   $scope.settings = appSettings.getReportsDirpath();
-  
+
+  $scope.toggleSettingsMenu = function() {
+    $mdSidenav('app_settings').toggle();
+    $scope.shouldBlockByBackdrop = $mdSidenav('app_settings').isOpen();
+  };
+
   $scope.openFileChooser = function() {
     $scope.isOpenFileChooser = true;
     dialog.showOpenDialog(
@@ -26,5 +31,9 @@ function($scope, appSettings, toast) {
         }
     });
   };
+
+  $scope.$on('toggleSettingsMenu', function(event, arg) {
+    $scope.toggleSettingsMenu();
+  });
 
 }]);
