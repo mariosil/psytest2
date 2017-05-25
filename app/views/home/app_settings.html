@@ -1,7 +1,9 @@
+<!-- Controller 'SettingsController' for this view was set in 'home.html' -->
+
 <!-- This backdrop will avoid to use main controlls before close Settings Sidenav -->
 <md-backdrop class="md-sidenav-backdrop md-opaque" ng-show="shouldBlockByBackdrop"></md-backdrop>
 
-<md-sidenav md-component-id="left" class="md-sidenav-left" layout="column" md-disable-backdrop>
+<md-sidenav md-component-id="app_settings" class="md-sidenav-left" layout="column" md-disable-backdrop>
   <md-toolbar class="md-toolbar-tools">
     <h2 flex md-truncate>Configuración</h2>
     <md-button class="md-icon-button" aria-label="Close" ng-click="toggleSettingsMenu()" ng-disabled="isOpenFileChooser">

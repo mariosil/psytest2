@@ -1,0 +1,17 @@
+<!-- Controller 'ListController' for this view was set in 'home.html' -->
+
+<!-- This backdrop will avoid to use main controlls before close Settings Sidenav -->
+<md-backdrop class="md-sidenav-backdrop md-opaque" ng-show="shouldBlockByBackdrop"></md-backdrop>
+
+<md-sidenav md-component-id="app_test_list" class="md-sidenav-right" layout="column" md-disable-backdrop>
+  <md-toolbar class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Close" ng-click="toggleListMenu()">
+      <md-icon md-font-set="material-icons">close</md-icon>
+    </md-button>
+    <h1 class="md-toolbar-tools">Pruebas psicométricas</h1>
+  </md-toolbar>
+
+  <md-button ng-repeat="test in tests" class="md-accent md-raised" ng-click="openNewTestForm(test)">
+    {{ test.test_name }}
+  </md-button>
+</md-sidenav>
