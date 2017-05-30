@@ -11,7 +11,7 @@
     <h1 class="md-toolbar-tools">Pruebas psicométricas</h1>
   </md-toolbar>
 
-  <md-button ng-repeat="test in tests" class="md-accent md-raised" ng-click="openNewTestForm(test)">
+  <md-button ng-repeat="test in tests" class="md-accent md-raised" ng-click="showTestApplyDialog($event, test)">
     {{ test.test_name }}
   </md-button>
 </md-sidenav>
