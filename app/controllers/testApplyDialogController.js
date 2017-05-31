@@ -24,7 +24,7 @@ function($scope, $mdDialog, selectedTest, otherTests) {
   };
 
   $scope.close = function() {
-    $mdDialog.cancel();
+    $mdDialog.cancel($scope.selectedTest);
   };
 
   $scope.begin = function(client) {
@@ -39,11 +39,11 @@ function($scope, $mdDialog, selectedTest, otherTests) {
     $scope.selectedTest = test;
   };
 
-  $scope.openOtherTestMenu = function($mdMenu, ev) {
+  $scope.getOtherTests = function() {
     selectedTestIndex = otherTests.indexOf($scope.selectedTest);
     $scope.otherTests = otherTests.slice();
     $scope.otherTests.splice(selectedTestIndex, 1);
-    $mdMenu.open(ev);
+    return $scope.otherTests;
   };
 
 }]);

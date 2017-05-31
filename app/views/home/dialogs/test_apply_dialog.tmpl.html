@@ -4,7 +4,7 @@
       <h2>Aplicar prueba {{ selectedTest.test_name }}</h2>
       <span flex></span>
       <md-button class="md-icon-button" ng-click="close()" aria-label="Close dialog">
-        <md-icon md-font-set="material-icons" aria-label="Close dialog">close</md-icon>
+        <md-icon md-font-set="material-icons">close</md-icon>
       </md-button>
     </md-toolbar>
 
@@ -48,19 +48,18 @@
       </md-input-container>
     </md-dialog-content>
 
-    <md-dialog-actions layout>
-      <md-menu>
-        <md-button aria-label="Open menu to select other test" class="md-primary" ng-click="openOtherTestMenu($mdMenu, ev)">
-          Cambiar prueba
-        </md-button>
-        <md-menu-content>
-          <md-menu-item ng-repeat="test in otherTests">
-            <md-button ng-click="changeSelectedTest(test)">{{ test.test_name }}</md-button>
-          </md-menu-item>
-        </md-menu-content>
-      </md-menu>
+    <md-dialog-actions layout layout-align="space-between end">
+      <md-fab-speed-dial md-direction="up" class="md-fling">
+        <md-fab-trigger>
+          <md-button aria-label="Add..." class="md-raised">Cambiar prueba</md-button>
+        </md-fab-trigger>
 
-      <span flex></span>
+        <md-fab-actions>
+          <md-button ng-repeat="test in getOtherTests()" ng-click="changeSelectedTest(test)" aria-label="Test to set" class="md-primary md-mini">
+            {{ test.test_name }}
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
 
       <md-button type="submit" ng-click="begin(client)" class="md-raised md-primary" ng-disabled="testApplyForm.$invalid">
         Iniciar

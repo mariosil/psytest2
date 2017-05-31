@@ -1,7 +1,7 @@
 var app = angular.module('PsytestApp');
 
-app.controller('ListController', ['$scope', '$mdSidenav', '$mdDialog', 'pbqTest', 'bdi_iiTest',
-function($scope, $mdSidenav, $mdDialog, pbqTest, bdi_iiTest) {
+app.controller('ListController', ['$scope', '$mdSidenav', '$mdDialog', 'toast', 'pbqTest', 'bdi_iiTest',
+function($scope, $mdSidenav, $mdDialog, toast, pbqTest, bdi_iiTest) {
   $scope.tests = [pbqTest, bdi_iiTest];
 
   $scope.toggleListMenu = function() {
@@ -15,17 +15,18 @@ function($scope, $mdSidenav, $mdDialog, pbqTest, bdi_iiTest) {
       templateUrl: '../views/home/dialogs/test_apply_dialog.tmpl.html',
       parent: angular.element(document.body),
       targetEvent: ev,
-      clickOutsideToClose: true,
-      escapeToClose: true,
       locals: {
         selectedTest: test,
         otherTests: $scope.tests
       }
     })
     .then(function(initData) {
-      console.log(initData);
-    }, function() {
-      console.log('canceled');
+        initData.client.names = initData.client.names.replace(/\b\w/g, function(firstChar) { return firstChar.toUpperCase() });
+        initData.client.lastName1 = initData.client.lastName1.replace(/\b\w/g, function(firstChar) { return firstChar.toUpperCase() });
+        initData.client.lastName2 = initData.client.lastName2.replace(/\b\w/g, function(firstChar) { return firstChar.toUpperCase() });
+        // TODO: go to test page
+    }, function(canceledTest) {
+      toast.showInfo("Aplicación de prueba " + canceledTest.test_name + " cancelada");
     });
   };
 
