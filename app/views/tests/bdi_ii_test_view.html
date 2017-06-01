@@ -1,0 +1,24 @@
+<md-content ng-init="showInstructions($event)" layout="column" class="md-whiteframe-3dp" flex>
+  <md-toolbar class="md-toolbar-tools">
+    <h2 flex>{{ test.test_name }}</h2>
+    <span flex></span>
+    <md-button class="md-icon-button" ng-click="showInstructions($event)" aria-label="Toggle instructions dialog">
+      <md-icon md-font-set="material-icons">help</md-icon>
+    </md-button>
+  </md-toolbar>
+
+  <md-content class="md-padding">
+    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
+      <md-tab ng-repeat="entry_group in test.entry_groups" label="{{ entry_group.entries[0].entry_name }}">
+        <md-content class="md-padding">
+          <md-radio-group ng-model="currentEntryClientAnswer.answered">
+            <!-- TODO: Only first tab should be enabled, other must be disabled until user responds previous tab. -->
+            <md-radio-button ng-repeat="answer in entry_group.entries[0].answers" ng-value="answer" aria-label="{{ answer.text }}">
+              {{ answer.text }}
+            </md-radio-button>
+          </md-radio-group>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</md-content>
