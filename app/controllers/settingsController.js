@@ -3,8 +3,8 @@ var app = angular.module('PsytestApp');
 const dialog = require('electron').remote.dialog;
 const os = require('os');
 
-app.controller('SettingsController', ['$scope', '$mdSidenav', 'appSettings', 'toast',
-function($scope, $mdSidenav, appSettings, toast) {
+app.controller('SettingsController', ['$scope', '$mdSidenav', 'appSettings', 'toastService',
+function($scope, $mdSidenav, appSettings, toastService) {
   $scope.settings = appSettings.getReportsDirpath();
 
   $scope.toggleSettingsMenu = function() {
@@ -25,9 +25,9 @@ function($scope, $mdSidenav, appSettings, toast) {
         if (files) {
           appSettings.setReportsDirpath(files.pop());
           $scope.settings = appSettings.getReportsDirpath();
-          toast.showSucces($scope.settings.label + ': ' + $scope.settings.reports_dir);
+          toastService.showSucces($scope.settings.label + ': ' + $scope.settings.reports_dir);
         } else {
-          toast.showInfo("Sin cambios");
+          toastService.showInfo("Sin cambios");
         }
     });
   };
