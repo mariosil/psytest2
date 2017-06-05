@@ -9,7 +9,7 @@ var getTemplate = function(textual_name, icon_color, message) {
   '</md-toast>';
 };
 
-app.service('toast', ['$mdToast', function($mdToast) {
+app.service('toastService', ['$mdToast', function($mdToast) {
   this.showSucces = function(message) {
     $mdToast.show($mdToast.build().template(getTemplate('check_circle', 'limegreen', message)));
   };

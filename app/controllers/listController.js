@@ -1,7 +1,7 @@
 var app = angular.module('PsytestApp');
 
-app.controller('ListController', ['$scope', '$mdSidenav', '$mdDialog', 'toast', 'pbqTest', 'bdi_iiTest',
-function($scope, $mdSidenav, $mdDialog, toast, pbqTest, bdi_iiTest) {
+app.controller('ListController', ['$scope', '$mdSidenav', '$mdDialog', 'toastService', 'pbqTest', 'bdi_iiTest', 'testsService',
+function($scope, $mdSidenav, $mdDialog, toastService, pbqTest, bdi_iiTest, testsService) {
   $scope.tests = [pbqTest, bdi_iiTest];
 
   $scope.toggleListMenu = function() {
@@ -24,9 +24,9 @@ function($scope, $mdSidenav, $mdDialog, toast, pbqTest, bdi_iiTest) {
         initData.client.names = initData.client.names.replace(/\b\w/g, function(firstChar) { return firstChar.toUpperCase() });
         initData.client.lastName1 = initData.client.lastName1.replace(/\b\w/g, function(firstChar) { return firstChar.toUpperCase() });
         initData.client.lastName2 = initData.client.lastName2.replace(/\b\w/g, function(firstChar) { return firstChar.toUpperCase() });
-        // TODO: go to test page
+        testsService.goToTest(initData.selectedTest, initData.client);
     }, function(canceledTest) {
-      toast.showInfo("Aplicación de prueba " + canceledTest.test_name + " cancelada");
+      toastService.showInfo("Aplicación de prueba " + canceledTest.test_name + " cancelada");
     });
   };
 
