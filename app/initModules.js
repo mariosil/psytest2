@@ -18,7 +18,8 @@ app.config(function($mdThemingProvider, $routeProvider) {
   $routeProvider.when("/", {
     templateUrl: "home/home.html"
   })
-  .when("/tests", {
-    templateUrl: "tests/tests_list.html"
+  .when("/test/bdi_ii", {
+    templateUrl: "tests/bdi_ii_test_view.html",
+    controller: "BDI_IITestController"
   });
 });
