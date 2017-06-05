@@ -12,11 +12,13 @@
     <script type="text/javascript" src="../../bower_components/angular-aria/angular-aria.min.js"></script>
     <script type="text/javascript" src="../../bower_components/angular-material/angular-material.min.js"></script>
     <script type="text/javascript" src="../../bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/angular-messages/angular-messages.min.js"></script>
 
     <!-- App components -->
     <script type="text/javascript" src="../initModules.js"></script>
     <script type="text/javascript" src="../assets/toastService.js"></script>
     <script type="text/javascript" src="../internal/appSettingsService.js"></script>
+    <script type="text/javascript" src="../psyco_tests/testsService.js"></script>
     <script type="text/javascript" src="../psyco_tests/pbqTestFactory.js"></script>
     <script type="text/javascript" src="../psyco_tests/bdi_iiTestFactory.js"></script>
 
@@ -25,11 +27,14 @@
     <script type="text/javascript" src="../controllers/homeController.js"></script>
     <script type="text/javascript" src="../controllers/settingsController.js"></script>
     <script type="text/javascript" src="../controllers/listController.js"></script>
+    <script type="text/javascript" src="../controllers/testApplyDialogController.js"></script>
+    <script type="text/javascript" src="../controllers/bdi_iiTestController.js"></script>
 
   </head>
 
   <body ng-controller="IndexController" layout="column" layout-align="center">
-    <md-content ng-init="go('/')" class="md-padding" layout layout-align="center" ng-view>
+
+    <md-content ng-init="go('/')" class="md-padding" layout layout-align="center" ng-view ng-cloak>
       <!-- All app views will show here -->
     </md-content>
 

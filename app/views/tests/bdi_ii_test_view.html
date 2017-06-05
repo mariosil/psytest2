@@ -1,0 +1,37 @@
+<md-content ng-init="showInstructions($event)" layout="column" flex class="md-whiteframe-3dp">
+  <md-toolbar class="md-toolbar-tools">
+    <h2>{{ test.test_name }}</h2>
+    <span flex></span>
+    <md-button class="md-icon-button" ng-click="showInstructions($event)" aria-label="Toggle instructions dialog">
+      <md-icon md-font-set="material-icons">help</md-icon>
+    </md-button>
+  </md-toolbar>
+
+  <md-tabs md-selected="selectedIndex" md-border-bottom>
+    <md-tab ng-repeat="entry_group in test.entry_groups" ng-disabled="shouldBeDisabled(entry_group)">
+      <md-tab-label>
+        {{ entry_group.entries[0].entry_name }}
+      </md-tab-label>
+
+      <md-tab-body>
+        <md-content class="md-padding">
+          <md-radio-group ng-model="currentEntryClientAnswer.answered">
+            <md-radio-button ng-repeat="answer in entry_group.entries[0].answers" ng-value="answer" aria-label="{{ answer.text }}">
+              {{ answer.text }}
+            </md-radio-button>
+          </md-radio-group>
+
+          <md-button ng-click="nextTab()" class="md-primary" ng-disabled="!currentEntryClientAnswer.answered" ng-hide="canFinish">
+            <span>Siguiente</span>
+            <md-icon md-font-set="material-icons">navigate_next</md-icon>
+          </md-button>
+
+          <md-button ng-click="finishTest()" class="md-primary md-raised" ng-disabled="!currentEntryClientAnswer.answered" ng-show="canFinish">
+            <md-icon md-font-set="material-icons">assignment_turned_in</md-icon>
+            <span>Finalizar</span>
+          </md-button>
+        </md-content>
+      </md-tab-body>
+    </md-tab>
+  </md-tabs>
+</md-content>

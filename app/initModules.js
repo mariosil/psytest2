@@ -3,7 +3,7 @@
 // available for factories 'bdi_iiTestFactory' and 'pbqTestFactory' which contains
 // the data for psycometric tests.
 
-var app = angular.module('PsytestApp', ['ngMaterial', 'ngRoute']);
+var app = angular.module('PsytestApp', ['ngMaterial', 'ngRoute', 'ngMessages']);
 
 // Configuring application stuff
 app.config(function($mdThemingProvider, $routeProvider) {
@@ -18,7 +18,8 @@ app.config(function($mdThemingProvider, $routeProvider) {
   $routeProvider.when("/", {
     templateUrl: "home/home.html"
   })
-  .when("/tests", {
-    templateUrl: "tests/tests_list.html"
+  .when("/test/bdi_ii", {
+    templateUrl: "tests/bdi_ii_test_view.html",
+    controller: "BDI_IITestController"
   });
 });

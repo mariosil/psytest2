@@ -1,0 +1,69 @@
+<md-dialog aria-label="New Test Apply">
+  <form name="testApplyForm">
+    <md-toolbar class="md-toolbar-tools">
+      <h2>Aplicar prueba {{ selectedTest.test_name }}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="close()" aria-label="Close dialog">
+        <md-icon md-font-set="material-icons">close</md-icon>
+      </md-button>
+    </md-toolbar>
+
+    <md-dialog-content class="md-dialog-content" layout layout-wrap>
+      <md-input-container flex="grow">
+        <label>Nombres</label>
+        <input style="text-transform: capitalize" type="text" name="clientName" ng-model="client.names" ng-pattern="validations.namePattern" required>
+        <div ng-messages="testApplyForm.clientName.$error" role="alert">
+          <div ng-message="required">{{ validations.nameRequiredError }}</div>
+          <div ng-message="pattern">{{ validations.namePatternError }}</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container flex="50">
+        <label>Primer Apellido</label>
+        <input style="text-transform: capitalize" type="text" name="clientrLastName1" ng-model="client.lastName1" ng-pattern="validations.namePattern" required>
+        <div ng-messages="testApplyForm.clientrLastName1.$error" role="alert">
+          <div ng-message="required">{{ validations.lastNameRequiredError }}</div>
+          <div ng-message="pattern">{{ validations.lastNamePatternError }}</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container flex="50">
+        <label>Segundo Apellido</label>
+        <input style="text-transform: capitalize" type="text" name="clientrLastName2" ng-model="client.lastName2" ng-pattern="validations.namePattern">
+        <div ng-messages="testApplyForm.clientrLastName2.$error" role="alert">
+          <div ng-message="pattern">{{ validations.lastNamePatternError }}</div>
+        </div>
+      </md-input-container>
+
+      <span flex="75"></span>
+
+      <md-input-container flex="25">
+        <label>Edad</label>
+        <input type="number" name="clientAge" ng-model="client.age" min="5" max="120" required/>
+        <div ng-messages="testApplyForm.clientAge.$error" role="alert">
+          <div ng-message="required">{{ validations.ageRequiredError }}</div>
+          <div ng-message="min">{{ validations.ageMinError }}</div>
+          <div ng-message="max">{{ validations.ageMaxError }}</div>
+        </div>
+      </md-input-container>
+    </md-dialog-content>
+
+    <md-dialog-actions layout layout-align="space-between end">
+      <md-fab-speed-dial md-direction="up" class="md-fling">
+        <md-fab-trigger>
+          <md-button aria-label="Add..." class="md-raised">Cambiar prueba</md-button>
+        </md-fab-trigger>
+
+        <md-fab-actions>
+          <md-button ng-repeat="test in getOtherTests()" ng-click="changeSelectedTest(test)" aria-label="Test to set" class="md-primary md-mini">
+            {{ test.test_name }}
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
+
+      <md-button type="submit" ng-click="begin(client)" class="md-raised md-primary" ng-disabled="testApplyForm.$invalid">
+        Iniciar
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
