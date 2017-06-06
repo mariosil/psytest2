@@ -189,8 +189,9 @@ app.factory('bdi_iiTest', function bdi_iiTestFactory() {
         "group_name": "indecision",
         "entries": [
           {
-            "entry_name": "Indecisión ",
-            "questions" : [
+            "entry_name": "Indecisión",
+            "entry_question": "",
+            "answers": [
               {"value": 0, "text": "Tomo decisiones tan bien como siempre"},
               {"value": 1, "text": "Encuentro más difícil tomar decisiones que antes"},
               {"value": 2, "text": "Tengo mucha mayor dificultad en tomar decisiones que antes"},
