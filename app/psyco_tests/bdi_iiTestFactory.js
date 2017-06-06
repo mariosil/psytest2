@@ -333,7 +333,6 @@ app.factory('bdi_iiTest', function bdi_iiTestFactory() {
             "entry_name": "Pregunta complementaria (1)",
             "entry_question": "Aproximadamente, ¿Hace cuánto tiempo ha tenido este malestar emocional?",
             "complementary": true,
-            "entry_question": "",
             "answers": [
               {"value": 1, "text": "Menos de de 2 semanas"},
               {"value": 2, "text": "2-3 Semanas"},
@@ -352,7 +351,6 @@ app.factory('bdi_iiTest', function bdi_iiTestFactory() {
             "entry_name": "Pregunta complementaria (2)",
             "entry_question": "¿Se siente peor por las mañanas pero va mejorando mientras avanza el día?",
             "complementary": true,
-            "entry_question": "",
             "answers": [
               {"value": 1, "text": "Si"},
               {"value": 2, "text": "No"}
@@ -367,7 +365,6 @@ app.factory('bdi_iiTest', function bdi_iiTestFactory() {
             "entry_name": "Pregunta complementaria (3)",
             "entry_question": "¿Ha notado que a pesar de que pasen cosas buenas, éstas no le hacen sentir mejor?",
             "complementary": true,
-            "entry_question": "",
             "answers": [
               {"value": 1, "text": "Si"},
               {"value": 2, "text": "No"}
