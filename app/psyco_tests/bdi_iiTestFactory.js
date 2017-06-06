@@ -189,8 +189,9 @@ app.factory('bdi_iiTest', function bdi_iiTestFactory() {
         "group_name": "indecision",
         "entries": [
           {
-            "entry_name": "Indecisión ",
-            "questions" : [
+            "entry_name": "Indecisión",
+            "entry_question": "",
+            "answers": [
               {"value": 0, "text": "Tomo decisiones tan bien como siempre"},
               {"value": 1, "text": "Encuentro más difícil tomar decisiones que antes"},
               {"value": 2, "text": "Tengo mucha mayor dificultad en tomar decisiones que antes"},
@@ -332,7 +333,6 @@ app.factory('bdi_iiTest', function bdi_iiTestFactory() {
             "entry_name": "Pregunta complementaria (1)",
             "entry_question": "Aproximadamente, ¿Hace cuánto tiempo ha tenido este malestar emocional?",
             "complementary": true,
-            "entry_question": "",
             "answers": [
               {"value": 1, "text": "Menos de de 2 semanas"},
               {"value": 2, "text": "2-3 Semanas"},
@@ -351,7 +351,6 @@ app.factory('bdi_iiTest', function bdi_iiTestFactory() {
             "entry_name": "Pregunta complementaria (2)",
             "entry_question": "¿Se siente peor por las mañanas pero va mejorando mientras avanza el día?",
             "complementary": true,
-            "entry_question": "",
             "answers": [
               {"value": 1, "text": "Si"},
               {"value": 2, "text": "No"}
@@ -366,7 +365,6 @@ app.factory('bdi_iiTest', function bdi_iiTestFactory() {
             "entry_name": "Pregunta complementaria (3)",
             "entry_question": "¿Ha notado que a pesar de que pasen cosas buenas, éstas no le hacen sentir mejor?",
             "complementary": true,
-            "entry_question": "",
             "answers": [
               {"value": 1, "text": "Si"},
               {"value": 2, "text": "No"}

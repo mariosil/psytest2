@@ -15,6 +15,8 @@
 
       <md-tab-body>
         <md-content class="md-padding">
+          <p ng-show="entry_group.entries[0].entry_question">{{ entry_group.entries[0].entry_question }}</p>
+
           <md-radio-group ng-model="currentEntryClientAnswer.answered">
             <md-radio-button ng-repeat="answer in entry_group.entries[0].answers" ng-value="answer" aria-label="{{ answer.text }}">
               {{ answer.text }}

@@ -8,6 +8,11 @@ function($scope, $mdSidenav, appSettings, toastService) {
   $scope.settings = appSettings.getReportsDirpath();
 
   $scope.toggleSettingsMenu = function() {
+    // On close callback to handle close, backdrop click or escape key pressed
+    // Callback happens BEFORE the close action occurs.
+    $mdSidenav('app_settings').onClose(function () {
+      $scope.shouldBlockByBackdrop = false;
+    });
     $mdSidenav('app_settings').toggle();
     $scope.shouldBlockByBackdrop = $mdSidenav('app_settings').isOpen();
   };
