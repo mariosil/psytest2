@@ -16,11 +16,11 @@
 
     <!-- App components -->
     <script type="text/javascript" src="../initModules.js"></script>
-    <script type="text/javascript" src="../assets/toastService.js"></script>
-    <script type="text/javascript" src="../internal/appSettingsService.js"></script>
     <script type="text/javascript" src="../psyco_tests/testsService.js"></script>
     <script type="text/javascript" src="../psyco_tests/pbqTestFactory.js"></script>
     <script type="text/javascript" src="../psyco_tests/bdi_iiTestFactory.js"></script>
+    <script type="text/javascript" src="../assets/toastService.js"></script>
+    <script type="text/javascript" src="../internal/appSettingsService.js"></script>
 
     <!-- App controllers -->
     <script type="text/javascript" src="../controllers/indexController.js"></script>
@@ -32,11 +32,9 @@
 
   </head>
 
-  <body ng-controller="IndexController" layout="column" layout-align="center">
-
-    <md-content ng-init="go('/')" class="md-padding" layout layout-align="center" ng-view ng-cloak>
+  <body ng-controller="IndexController" layout="column" layout-align="center stretch">
+    <md-content ng-init="go('/')" layout layout-align="space-between center" ng-view ng-cloak>
       <!-- All app views will show here -->
     </md-content>
-
   </body>
 </html
