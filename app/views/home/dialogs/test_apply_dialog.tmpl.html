@@ -39,9 +39,11 @@
 
       <md-input-container flex="25">
         <label>Edad</label>
-        <input type="number" name="clientAge" ng-model="client.age" min="5" max="120" required/>
+        <input type="number" name="clientAge" ng-model="client.age" min="5" max="120" ng-pattern="validations.agePattern" required/>
         <div ng-messages="testApplyForm.clientAge.$error" role="alert">
           <div ng-message="required">{{ validations.ageRequiredError }}</div>
+          <div ng-message="pattern">{{ validations.agePatternError }}</div>
+          <div ng-message="number">{{ validations.agePatternError }}</div>
           <div ng-message="min">{{ validations.ageMinError }}</div>
           <div ng-message="max">{{ validations.ageMaxError }}</div>
         </div>
