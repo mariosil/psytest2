@@ -21,5 +21,9 @@ app.config(function($mdThemingProvider, $routeProvider) {
   .when("/test/bdi_ii", {
     templateUrl: "tests/bdi_ii_test_view.html",
     controller: "BDI_IITestController"
+  })
+  .when("/test/thanks", {
+    templateUrl: "tests/thanks_after_test.html",
+    controller: "IndexController"
   });
 });
