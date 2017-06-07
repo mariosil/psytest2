@@ -1,4 +1,4 @@
-<md-content ng-init="showInstructions($event)" layout="column" flex class="md-whiteframe-3dp">
+<md-content ng-init="showInstructions($event)" flex class="md-margin md-whiteframe-3dp" ng-cloak>
   <md-toolbar class="md-toolbar-tools">
     <h2>{{ test.test_name }}</h2>
     <span flex></span>
@@ -7,7 +7,7 @@
     </md-button>
   </md-toolbar>
 
-  <md-tabs md-selected="selectedIndex" md-border-bottom>
+  <md-tabs md-selected="selectedIndex" md-border-bottom flex="grow" md-dynamic-height>
     <md-tab ng-repeat="entry_group in test.entry_groups" ng-disabled="shouldBeDisabled(entry_group)">
       <md-tab-label>
         {{ entry_group.entries[0].entry_name }}
@@ -15,6 +15,8 @@
 
       <md-tab-body>
         <md-content class="md-padding">
+          <p ng-show="entry_group.entries[0].entry_question">{{ entry_group.entries[0].entry_question }}</p>
+
           <md-radio-group ng-model="currentEntryClientAnswer.answered">
             <md-radio-button ng-repeat="answer in entry_group.entries[0].answers" ng-value="answer" aria-label="{{ answer.text }}">
               {{ answer.text }}

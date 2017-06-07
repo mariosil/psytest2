@@ -5,6 +5,11 @@ function($scope, $mdSidenav, $mdDialog, toastService, pbqTest, bdi_iiTest, tests
   $scope.tests = [pbqTest, bdi_iiTest];
 
   $scope.toggleListMenu = function() {
+    // On close callback to handle close, backdrop click or escape key pressed
+    // Callback happens BEFORE the close action occurs.
+    $mdSidenav('app_test_list').onClose(function () {
+      $scope.shouldBlockByBackdrop = false;
+    });    
     $mdSidenav('app_test_list').toggle();
     $scope.shouldBlockByBackdrop = $mdSidenav('app_test_list').isOpen();
   };
