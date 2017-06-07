@@ -11,7 +11,7 @@
     <md-dialog-content class="md-dialog-content" layout layout-wrap>
       <md-input-container flex="grow">
         <label>Nombres</label>
-        <input style="text-transform: capitalize" type="text" name="clientName" ng-model="client.names" ng-pattern="validations.namePattern" required>
+        <input style="text-transform: capitalize" type="text" name="clientName" ng-model="client.names" ng-pattern="validations.namePattern" required md-autofocus>
         <div ng-messages="testApplyForm.clientName.$error" role="alert">
           <div ng-message="required">{{ validations.nameRequiredError }}</div>
           <div ng-message="pattern">{{ validations.namePatternError }}</div>
