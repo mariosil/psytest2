@@ -25,5 +25,9 @@ app.config(function($mdThemingProvider, $routeProvider) {
   .when("/test/thanks", {
     templateUrl: "tests/thanks_after_test.html",
     controller: "IndexController"
+  })
+  .when("/test/test_not_found", {
+    templateUrl: "tests/test_not_found.html",
+    controller: "IndexController"
   });
 });

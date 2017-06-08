@@ -12,13 +12,12 @@ app.service('testsService', ['$location', function($location) {
       case "BDI-II":
       $location.path("/test/bdi_ii");
       break;
-      case "PBQ":
-      // TODO: Change to right route when PQB test view be ready.
-      $location.path("/");
-      break;
+      // case "PBQ":
+      // // TODO: Change to right route when PQB test view be ready.
+      // $location.path("/");
+      // break;
       default:
-      // TODO: Create a 'Test Not Found' page or something like that.
-      $location.path("/");
+      $location.path("/test/test_not_found");
     }
   };
 
