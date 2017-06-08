@@ -1,7 +1,7 @@
 var app = angular.module('PsytestApp');
 
-app.controller('BDI_IITestController', ['$scope', '$mdDialog', 'testsService',
-function($scope, $mdDialog, testsService) {
+app.controller('BDI_IITestController', ['$scope', '$location', '$mdDialog', 'testsService',
+function($scope, $location, $mdDialog, testsService) {
   $scope.client = testsService.getClient();
   $scope.test = testsService.getTest();
   $scope.selectedIndex = 0;
@@ -30,7 +30,7 @@ function($scope, $mdDialog, testsService) {
   $scope.finishTest = function() {
     let currentAnswer = JSON.parse(JSON.stringify($scope.currentEntryClientAnswer));
     $scope.clientAnswers.push(currentAnswer);
-    console.log($scope.clientAnswers);
+    $location.path("/test/thanks");
     // TODO: Save answers in some file.
   };
 

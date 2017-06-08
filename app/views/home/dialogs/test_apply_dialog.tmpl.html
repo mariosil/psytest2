@@ -11,7 +11,7 @@
     <md-dialog-content class="md-dialog-content" layout layout-wrap>
       <md-input-container flex="grow">
         <label>Nombres</label>
-        <input style="text-transform: capitalize" type="text" name="clientName" ng-model="client.names" ng-pattern="validations.namePattern" required>
+        <input style="text-transform: capitalize" type="text" name="clientName" ng-model="client.names" ng-pattern="validations.namePattern" required md-autofocus>
         <div ng-messages="testApplyForm.clientName.$error" role="alert">
           <div ng-message="required">{{ validations.nameRequiredError }}</div>
           <div ng-message="pattern">{{ validations.namePatternError }}</div>
@@ -53,7 +53,10 @@
     <md-dialog-actions layout layout-align="space-between end">
       <md-fab-speed-dial md-direction="up" class="md-fling">
         <md-fab-trigger>
-          <md-button aria-label="Add..." class="md-raised">Cambiar prueba</md-button>
+          <md-button aria-label="Add..." class="md-raised">
+            <md-icon md-font-set="material-icons">list</md-icon>
+            Cambiar prueba
+          </md-button>
         </md-fab-trigger>
 
         <md-fab-actions>
@@ -64,6 +67,7 @@
       </md-fab-speed-dial>
 
       <md-button type="submit" ng-click="begin(client)" class="md-raised md-primary" ng-disabled="testApplyForm.$invalid">
+        <md-icon md-font-set="material-icons">play_arrow</md-icon>
         Iniciar
       </md-button>
     </md-dialog-actions>
