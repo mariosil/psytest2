@@ -14,7 +14,7 @@
   <md-input-container>
     <label>{{ settings.label }}</label>
     <input ng-model="settings.reports_dir" disabled>
-    <md-tooltip md-direction="left">{{ settings.reports_dir }}</md-tooltip>
+    <md-tooltip md-direction="left" ng-if="settings.reports_dir != ''">{{ settings.reports_dir }}</md-tooltip>
   </md-input-container>
 
   <md-content layout layout-padding layout-align="end center">
