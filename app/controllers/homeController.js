@@ -1,7 +1,9 @@
 var app = angular.module('PsytestApp');
 
-app.controller('HomeController', ['$scope', '$rootScope', '$mdSidenav',
-function($scope, $rootScope, $mdSidenav) {
+app.controller('HomeController', ['$scope', '$rootScope', '$mdSidenav', 'appSettings',
+function($scope, $rootScope, $mdSidenav, appSettings) {
+  $scope.canSeeTestList = appSettings.reportsDirpathIsSet;
+
   $scope.toggleSettingsMenu = function() {
     $rootScope.$broadcast('toggleSettingsMenu', true);
   };

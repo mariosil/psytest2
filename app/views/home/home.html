@@ -10,7 +10,7 @@
       <md-icon md-font-set="material-icons">settings</md-icon>
     </md-button>
 
-    <md-button class="md-fab" aria-label="List" ng-click="toggleListMenu()">
+    <md-button class="md-fab" aria-label="List" ng-click="toggleListMenu()" ng-disabled="!canSeeTestList">
       <md-icon md-font-set="material-icons">list</md-icon>
     </md-button>
   </md-content>

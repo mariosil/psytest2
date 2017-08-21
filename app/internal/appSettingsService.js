@@ -9,6 +9,7 @@ const REPORTS_DIR = url.format({ pathname: path.join('app', 'internal', 'reports
 app.service('appSettings', function() {
   this.setReportsDirpath = function(dirpath) {
     fs.writeFileSync(REPORTS_DIR, dirpath);
+    this.reportsDirpathIsSet = true;
   };
 
   this.getReportsDirpath = function() {
