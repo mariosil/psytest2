@@ -3,8 +3,8 @@ var app = angular.module('PsytestApp');
 const dialog = require('electron').remote.dialog;
 const os = require('os');
 
-app.controller('SettingsController', ['$scope', '$mdSidenav', 'appSettings', 'toastService',
-function($scope, $mdSidenav, appSettings, toastService) {
+app.controller('SettingsController', ['$scope', '$mdSidenav', '$rootScope', 'appSettings', 'toastService',
+function($scope, $mdSidenav, $rootScope, appSettings, toastService) {
   $scope.settings = appSettings.getReportsDirpath();
 
   $scope.toggleSettingsMenu = function() {
@@ -18,7 +18,7 @@ function($scope, $mdSidenav, appSettings, toastService) {
   };
 
   $scope.openFileChooser = function() {
-    $scope.isOpenFileChooser = true;
+    $scope.isFileChooserOpen = true;
     dialog.showOpenDialog(
       {
         title: "Seleccione la carpeta donde se guardarán los reportes",
@@ -26,10 +26,11 @@ function($scope, $mdSidenav, appSettings, toastService) {
         properties: ['openDirectory']
       },
       function(files) {
-        $scope.isOpenFileChooser = false;
+        $scope.isFileChooserOpen = false;
         if (files) {
           appSettings.setReportsDirpath(files.pop());
           $scope.settings = appSettings.getReportsDirpath();
+          $rootScope.$broadcast('reportsDirpathEstablished', true);
           toastService.showSucces($scope.settings.label + ': ' + $scope.settings.reports_dir);
         } else {
           toastService.showInfo("Sin cambios");
